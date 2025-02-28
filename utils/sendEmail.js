@@ -2,16 +2,16 @@ const postmark = require("postmark");
 
 const client = new postmark.ServerClient(process.env.POSTMARK_API_TOKEN); //  Ensure API Token is in .env
 
-const sendEmail = async (to, subject, text) => {
+const sendEmail = async (to, subject, body) => {
   try {
-      console.log("Sending email to:", to);
-      console.log("Email content:", text);
+     // console.log("Sending email to:", to);
+     // console.log("Email content:", body);
       
       await client.sendEmail({
           From: process.env.SENDER_EMAIL,  // Use verified email
           To: to,
           Subject: subject,
-          TextBody: text
+          TextBody: body
       });
 
       console.log(" Email sent successfully!");

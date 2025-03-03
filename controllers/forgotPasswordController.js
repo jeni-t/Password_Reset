@@ -21,7 +21,7 @@ const forgotPasswordController = async (req, res) => {
     await user.save();
 
     // Send Email with plain resetToken (not hashed)
-    const resetURL = `http://localhost:5173/reset-password/${resetToken}`;
+    const resetURL = `https://password-reset-ud7z.onrender.com/reset-password/${resetToken}`;
     await sendEmail(user.email, "Password Reset Request", `Click here: ${resetURL}`);
 
     res.status(200).json({ message: "Password reset link sent!" });

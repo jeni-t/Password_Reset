@@ -20,7 +20,7 @@ router.post("/forgot-password", async (req, res) => {
         await user.save();
 
         // Send Email
-        const resetLink = `http://localhost:5173/reset-password/${resetToken}`;
+        const resetLink = `https://password-reset-ud7z.onrender.com/reset-password/${resetToken}`;
         console.log("Reset Link:", resetLink); // Debugging
 
         await sendEmail(user.email, "Password Reset Request", `Click the link to reset your password: ${resetLink}`);
